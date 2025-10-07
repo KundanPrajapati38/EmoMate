@@ -1,0 +1,25 @@
+# kv/home.kv
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(30)
+        spacing: dp(20)
+
+        Label:
+            text: 'Welcome Home!'
+            font_size: '32sp'
+            bold: True
+
+        Button:
+            text: 'Go to Emotion Detector'
+            size_hint_y: None
+            height: dp(50)
+            on_release: app.root.current = 'emotion_detector'
+
+        Button:
+            text: 'Logout'
+            size_hint_y: None
+            height: dp(50)
+            on_release:
+                app.root.transition.direction = 'right'
+                app.root.current = 'auth'

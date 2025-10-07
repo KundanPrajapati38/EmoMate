@@ -1,0 +1,83 @@
+<LoginScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.1, 0.1, 0.1, 0.8 # Dark background for the form
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [dp(15)]
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(30)
+            spacing: dp(15)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.8, 0.7
+
+            Label:
+                text: 'Login'
+                font_size: '36sp'
+                color: 1, 1, 1, 1 # White text
+                size_hint_y: None
+                height: dp(60)
+                halign: 'center'
+                valign: 'middle'
+
+            TextInput:
+                id: username_input
+                hint_text: 'Username'
+                multiline: False
+                size_hint_y: None
+                height: dp(48)
+                font_size: '18sp'
+                padding: [dp(15), dp(10), dp(15), dp(10)]
+                background_color: 0.2, 0.2, 0.2, 1 # Darker input background
+                foreground_color: 1, 1, 1, 1 # White text
+                hint_text_color: 0.7, 0.7, 0.7, 1 # Lighter hint text
+                cursor_color: 1, 1, 1, 1
+                write_tab: False
+
+            TextInput:
+                id: password_input
+                hint_text: 'Password'
+                password: True
+                multiline: False
+                size_hint_y: None
+                height: dp(48)
+                font_size: '18sp'
+                padding: [dp(15), dp(10), dp(15), dp(10)]
+                background_color: 0.2, 0.2, 0.2, 1
+                foreground_color: 1, 1, 1, 1
+                hint_text_color: 0.7, 0.7, 0.7, 1
+                cursor_color: 1, 1, 1, 1
+                write_tab: False
+
+            Button:
+                text: 'Login'
+                size_hint_y: None
+                height: dp(56)
+                font_size: '20sp'
+                background_normal: ''
+                background_color: 0.0, 0.5, 0.8, 1 # Blue button
+                color: 1, 1, 1, 1 # White text
+                on_press: app.root.get_screen('login').do_login(username_input.text, password_input.text)
+
+            Label:
+                id: error_message
+                text: ''
+                color: 1, 0.2, 0.2, 1 # Reddish error message
+                size_hint_y: None
+                height: dp(30)
+                halign: 'center'
+                valign: 'middle'
+
+            ProgressBar:
+                id: loading_indicator
+                max: 1
+                value: 0
+                size_hint_y: None
+                height: dp(10)
+                opacity: 0
+                background_color: 0.3, 0.3, 0.3, 1
+                foreground_color: 0.0, 0.7, 1.0, 1 # Blue progress bar

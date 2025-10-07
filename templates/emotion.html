@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ translations.emotion_detection }} - HopeDose</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/emotion.css') }}">
+</head>
+<body>
+  {% include 'header.html' %}
+
+  
+  
+  <div class="container page-container">
+    <div class="py-4">
+      <h1 class="display-4 fw-bold main-title text-center animate__animated animate__fadeInDown">{{ translations.emotion_detection }}</h1>
+      <p class="lead mb-4 text-center animate__animated animate__fadeInUp"><strong> real-time emotion detection powered by AI</strong></p>
+      
+      <div class="row">
+        <div class="col-lg-12 mb-4">
+          <div class="info-box animate__animated animate__fadeInLeft">
+            <h3 class="info-title"><i class="fas fa-info-circle me-2"></i>How It Works</h3>
+            <p>Our AI system analyzes your facial expressions in real-time and determines your emotional state. The system can detect 7 different emotions with high accuracy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row side-by-side">
+        <!-- Camera and Detection Controls -->
+        <div class="col-lg-12 mb-4">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="camera-container h-100 animate__animated animate__zoomIn">
+                <div id="cameraLoading" class="camera-loading d-flex flex-column justify-content-center align-items-center h-100">
+            <div id="three-d-animation">
+              <div class="face-front"><img src="{{ url_for('static', filename='images/face_icon.svg') }}" alt="Face Icon"></div>
+              <div class="face-back"><img src="{{ url_for('static', filename='images/face_icon.svg') }}" alt="Face Icon"></div>
+              <div class="face-right"><img src="{{ url_for('static', filename='images/face_icon.svg') }}" alt="Face Icon"></div>
+              <div class="face-left"><img src="{{ url_for('static', filename='images/face_icon.svg') }}" alt="Face Icon"></div>
+              <div class="face-top"><img src="{{ url_for('static', filename='images/face_icon.svg') }}" alt="Face Icon"></div>
+              <div class="face-bottom"><img src="{{ url_for('static', filename='images/face_icon.svg') }}" alt="Face Icon"></div>
+            </div>
+                  <p class="mt-2">{{ translations.starting_camera }}</p>
+                </div>
+                <video id="video" autoplay playsinline style="display:none;"></video>
+                <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="detection-container mt-4">
+                <div class="emotion-result animate__animated animate__fadeInLeft" style="animation-delay: 0.2s">
+                  <div id="emotion-icon" class="emotion-icon text-center">
+                    <i class="fas fa-face-smile"></i>
+                  </div>
+                  <div id="result-box" class="bg-light rounded text-center">Waiting for detection...</div>
+                </div>
+
+                <div class="animate__animated animate__fadeInLeft" style="animation-delay: 0.4s">
+                  <div id="ai-response-box">{{ translations.ai_is_ready }}</div>
+                </div>
+
+                <div class="mt-4 text-center animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                  <button id="startButton" class="btn btn-primary control-btn">
+                    <i class="fas fa-camera me-2"></i>{{ translations.start_detection }}
+                  </button>
+                  <button id="stopButton" class="btn btn-outline-secondary control-btn" disabled>
+                    <i class="fas fa-stop me-2"></i>{{ translations.stop }}
+                  </button>
+                </div>
+
+                <div class="loading-indicator" id="loadingIndicator">
+                  <div class="d-flex justify-content-center">
+                    <div class="loading-spinner"></div>
+                  </div>
+                  <p class="mt-2">{{ translations.analyzing_expression }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Emotion Stats Section -->
+        <div class="col-lg-12 mb-4">
+          <div class="emotion-stats mt-4">
+            <div class="stat-card">
+              <i class="fas fa-bolt text-warning"></i>
+              <h5 class="mt-2">{{ translations.fast_analysis }}</h5>
+              <p class="text-muted">{{ translations.results_in_seconds }}</p>
+              <p class="stat-description">Our advanced algorithms process your expressions instantly, providing real-time feedback.</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-brain text-primary"></i>
+              <h5 class="mt-2">{{ translations.ai_powered }}</h5>
+              <p class="text-muted">{{ translations.deep_learning_model }}</p>
+              <p class="stat-description">Leveraging cutting-edge deep learning models for highly accurate emotion recognition.</p>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-chart-pie text-success"></i>
+              <h5 class="mt-2">{{ translations.seven_emotions }}</h5>
+              <p class="text-muted">{{ translations.comprehensive_detection }}</p>
+              <p class="stat-description">Capable of identifying a wide range of human emotions, including happiness, sadness, anger, and more.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function changeLanguage(lang_code) {
+      window.location.href = "/set_language/" + lang_code;
+    }
+
+    const video = document.getElementById('video');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+    const resultBox = document.getElementById('result-box');
+    const aiResponseBox = document.getElementById('ai-response-box');
+    const emotionIcon = document.getElementById('emotion-icon');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const cameraLoading = document.getElementById('cameraLoading');
+    let detectionInterval;
+    
+    // Emotion icons mapping
+    const emotionIcons = {
+      'Happy': '<i class="fas fa-face-laugh-beam text-warning"></i>',
+      'Sad': '<i class="fas fa-face-sad-tear text-primary"></i>',
+      'Angry': '<i class="fas fa-face-angry text-danger"></i>',
+      'Surprise': '<i class="fas fa-face-surprise text-info"></i>',
+      'Fear': '<i class="fas fa-face-frown text-secondary"></i>',
+      'Disgust': '<i class="fas fa-face-dizzy text-success"></i>',
+      'Neutral': '<i class="fas fa-face-meh text-dark"></i>',
+      'N/A': '<i class="fas fa-face-question text-muted"></i>'
+    };
+
+    startButton.addEventListener('click', async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+        cameraLoading.style.display = 'none';
+        video.style.display = 'block';
+        
+        startButton.disabled = true;
+        stopButton.disabled = false;
+        
+        resultBox.textContent = "{{ translations.starting_detection }}";
+        
+        // Add pulse animation to camera container
+        video.parentElement.classList.add('pulse-animation');
+        
+        // First detection after a short delay
+        setTimeout(detectEmotion, 1000);
+        
+        // Set interval for continuous detection
+        detectionInterval = setInterval(detectEmotion, 5000); 
+      } catch (err) {
+        console.error("Error accessing camera: ", err);
+        alert("{{ translations.camera_access_error }}");
+        cameraLoading.style.display = 'flex';
+        video.style.display = 'none';
+      }
+    });
+    
+    stopButton.addEventListener('click', () => {
+      clearInterval(detectionInterval);
+      
+      // Stop the video stream
+      if (video.srcObject) {
+        const tracks = video.srcObject.getTracks();
+        tracks.forEach(track => track.stop());
+        video.srcObject = null;
+      }
+      
+      // Reset UI
+      startButton.disabled = false;
+      stopButton.disabled = true;
+      resultBox.textContent = "{{ translations.detection_stopped }}";
+      aiResponseBox.textContent = "{{ translations.ai_is_ready }}";
+      emotionIcon.innerHTML = '<i class="fas fa-face-smile"></i>';
+      
+      // Remove pulse animation
+      video.parentElement.classList.remove('pulse-animation');
+      cameraLoading.style.display = 'flex';
+      video.style.display = 'none';
+    });
+
+    async function detectEmotion() {
+      // Show loading indicator
+      loadingIndicator.style.display = 'block';
+      
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      canvas.toBlob(async (blob) => {
+        const formData = new FormData();
+        formData.append('image', blob, 'frame.jpg');
+        try {
+          const response = await fetch('/detect', {
+            method: 'POST',
+            body: formData,
+          });
+
+          const result = await response.json();
+          
+          // Hide loading indicator
+          loadingIndicator.style.display = 'none';
+          
+          // Update emotion text and icon
+          resultBox.textContent = `{{ translations.predicted_emotion }}: ${result.emotion}`;
+          emotionIcon.innerHTML = emotionIcons[result.emotion] || emotionIcons['N/A'];
+          
+          // Update AI response with animation
+          aiResponseBox.classList.remove('animate__animated', 'animate__fadeIn');
+          void aiResponseBox.offsetWidth; 
+          aiResponseBox.textContent = `{{ translations.ai_response }}: ${result.ai_response}`;
+          aiResponseBox.classList.add('animate__animated', 'animate__fadeIn');
+          
+          // Add flash animation to result box
+          resultBox.classList.remove('animate__animated', 'animate__flash');
+          void resultBox.offsetWidth; 
+          resultBox.classList.add('animate__animated', 'animate__flash');
+
+        } catch (error) {
+          console.error('Error:', error);
+          loadingIndicator.style.display = 'none';
+          resultBox.textContent = "{{ translations.error_connecting_to_server }}";
+          clearInterval(detectionInterval);
+          startButton.disabled = false;
+          stopButton.disabled = true;
+          video.parentElement.classList.remove('pulse-animation');
+          cameraLoading.style.display = 'flex';
+          video.style.display = 'none';
+        }
+      }, 'image/jpeg', 0.8);
+    }
+  </script>
+
+{% include 'footer.html' %}
+</body>

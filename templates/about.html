@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Emotion AI</title>
+    <!-- Bootstrap CSS for styling and responsiveness -->
+    <link href="{{ url_for('static', filename='lib/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="{{ url_for('static', filename='lib/css/all.min.css') }}" rel="stylesheet">
+    <!-- AOS Animation Library CSS for scroll animations -->
+    <link href="{{ url_for('static', filename='lib/css/aos.css') }}" rel="stylesheet">
+    <!-- Custom CSS for global styles -->
+    <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/footer.css') }}" rel="stylesheet">
+    <!-- Custom CSS for header styles -->
+    <link href="{{ url_for('static', filename='static/css/header.css') }}" rel="stylesheet">
+    <!-- Custom CSS for footer styles -->
+    <link href="{{ url_for('static', filename='static/css/footer.css') }}" rel="stylesheet">
+    <!-- Custom CSS for about page specific styles -->
+    <link href="{{ url_for('static', filename='static/css/about.css') }}" rel="stylesheet">
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <main>
+        <!-- About Section: Provides an overview of Emotion AI, its mission, and core values. -->
+        <section id="about" class="about-section py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                            <img src="{{ url_for('static', filename='images/face_icon.png') }}" alt="EMOMATE Logo" class="img-fluid mb-2 animated-face-icon">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h2 class="section-title mb-4">Who We Are</h2>
+                        <p class="lead"><strong>Emotion AI is at the forefront of developing cutting-edge artificial intelligence solutions that understand and interpret human emotions.</strong></p>
+                        <p ><strong>Our mission is to bridge the gap between technology and human feelings, creating more intuitive and empathetic digital experiences. We believe in a future where technology enhances our emotional well-being and understanding.</strong></p>
+                        <div class="row mt-4">
+                            <div class="col-md-6 feature-item" data-aos="fade-up" data-aos-delay="100">
+                                <i class="fas fa-brain fa-2x mb-2"></i>
+                                <h5>Advanced Algorithms</h5>
+                                <p>Utilizing the latest in machine learning and deep learning.</p>
+                            </div>
+                            <div class="col-md-6 feature-item" data-aos="fade-up" data-aos-delay="200">
+                                <i class="fas fa-hand-holding-heart fa-2x mb-2"></i>
+                                <h5>Empathetic Technology</h5>
+                                <p>Building systems that truly connect with users.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Section: Details the company's long-term vision and strategic mission. -->
+        <section id="vision-mission" class="vision-mission-section py-5 bg-light-dark">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">Our Vision & Mission</h2>
+                    <p class="lead text-muted"><strong>Guiding principles that drive our innovation.</strong></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="vision-mission-card p-4 text-center rounded shadow">
+                            <i class="fas fa-eye fa-3x mb-3 text-primary"></i>
+                            <h3>Our Vision</h3>
+                            <p>To be the global leader in emotional intelligence technology, fostering a world where technology understands and responds to human emotions seamlessly.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="vision-mission-card p-4 text-center rounded shadow">
+                            <i class="fas fa-rocket fa-3x mb-3 text-success"></i>
+                            <h3>Our Mission</h3>
+                            <p>To develop innovative, accurate, and ethical AI solutions that empower individuals and businesses to better understand, manage, and leverage emotional insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Stats Section: Showcases key achievements and metrics of Emotion AI. -->
+        <section id="impact-stats" class="impact-stats-section py-5 bg-primary text-white">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title text-white">Our Impact</h2>
+                    <p class="lead "><strong>Quantifying our contribution to a better, more empathetic world.</strong></p>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="impact-card p-4 rounded shadow-sm">
+                            <i class="fas fa-users fa-3x mb-3"></i>
+                            <h3>100K+</h3>
+                            <p>Users Reached</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="impact-card p-4 rounded shadow-sm">
+                            <i class="fas fa-brain fa-3x mb-3"></i>
+                            <h3>50M+</h3>
+                            <p>Emotions Analyzed</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="impact-card p-4 rounded shadow-sm">
+                            <i class="fas fa-globe fa-3x mb-3"></i>
+                            <h3>15</h3>
+                            <p>Countries Engaged</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section: Introduces the key members of the Emotion AI team. -->
+        <section id="team" class="team-section py-5">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">Our Team</h2>
+                    <p class="lead text-muted"><strong>Meet the passionate individuals behind Emotion AI.</strong></p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-member-card p-4 text-center rounded shadow">
+                            <img src="{{ url_for('static', filename='images/Kundan.jpg') }}" alt="Team Member 1" class="img-fluid mb-3 team-member-photo">
+                            <h5>Kundan Prajapati</h5>
+                            <p class="text-muted">CEO & Founder</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="team-member-card p-4 text-center rounded shadow">
+                            <img src="{{ url_for('static', filename='images/face_icon.png') }}" alt="Team Member 2" class="img-fluid mb-3 team-member-photo">
+                            <h5>Muskan Jha</h5>
+                            <p class="text-muted">Lead AI Engineer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="team-member-card p-4 text-center rounded shadow">
+                            <img src="{{ url_for('static', filename='images/Rahul.jpg') }}" alt="Team Member 3" class="img-fluid mb-3 team-member-photo">
+                            <h5>Rahul Kumar</h5>
+                            <p class="text-muted">Product Manager</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="team-member-card p-4 text-center rounded shadow">
+                            <img src="{{ url_for('static', filename='images/Vishwajeet.png') }}" alt="Team Member 4" class="img-fluid mb-3 team-member-photo">
+                            <h5>Vishwajeet Kumar</h5>
+                            <p class="text-muted">UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section: Displays feedback and reviews from satisfied users. -->
+        <section id="testimonials" class="testimonials-section py-5">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">What Our Users Say</h2>
+                    <p class="lead text-muted"><strong>Hear from those who have experienced the Emotion AI difference.</strong></p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="testimonial-card p-4 rounded shadow text-center">
+                                        <p class="lead"><strong>"Emotion AI has revolutionized how we interact with our customers. The insights gained are invaluable!\"</strong></p>
+                                        <h5 class="mt-3">Mayur Prajapati</h5>
+                                        <p class="text-muted">CEO, Tech Solutions</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-card p-4 rounded shadow text-center">
+                                        <p class="lead"><strong>"An incredible tool for understanding team dynamics and fostering a more empathetic workplace."</strong></p>
+                                        <h5 class="mt-3">Abhinav Prajapati</h5>
+                                        <p class="text-muted">HR Director, Global Corp</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action Section: Encourages users to engage further with Emotion AI. -->
+        <section id="cta" class="cta-section py-5 text-center text-white">
+            <div class="container" data-aos="zoom-in">
+                <h2 class="display-4 fw-bold mb-3">Ready to Transform Your Understanding?</h2>
+                <p class="lead mb-4"><strong>Join us in exploring the power of emotional intelligence.</strong></p>
+                <a href="/emotion" class="btn btn-light btn-lg rounded-pill px-4 py-2">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap JS and Popper.js for Bootstrap functionalities -->
+    <script src="{{ url_for('static', filename='lib/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- AOS Animation Library JS for scroll animations -->
+    <script src="{{ url_for('static', filename='lib/js/aos.js') }}"></script>
+    <!-- Custom JS for page-specific scripts -->
+    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+</body>
+</html>

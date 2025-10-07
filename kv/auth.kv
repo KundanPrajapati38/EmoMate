@@ -1,0 +1,158 @@
+#:import Factory kivy.factory.Factory
+# File: kv/auth.kv
+<AuthScreen>:
+    ScreenManager:
+        id: screen_manager
+        transition: Factory.FadeTransition()
+
+        Screen:
+            name: 'login'
+            on_enter: root.set_login_focus()
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.95, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            FloatLayout:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: dp(30)
+                    spacing: dp(15)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    size_hint: 0.8, None
+                    height: self.minimum_height
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [dp(15)]
+
+                    Image:
+                        source: 'assets/my.png'
+                        size_hint_y: None
+                        height: dp(100)
+                        pos_hint: {'center_x': 0.5}
+
+                    Label:
+                        text: 'Welcome Back!'
+                        font_size: '36sp'
+                        bold: True
+                        color: 0.1, 0.1, 0.1, 1
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    Label:
+                        id: login_error_label # ERROR LABEL FOR LOGIN
+                        text: ''
+                        color: 1, 0.2, 0.2, 1
+                        size_hint_y: None
+                        height: self.texture_size[1] if self.text else 0
+
+                    TextInput:
+                        id: login_username
+                        hint_text: 'Username'
+                        size_hint_y: None
+                        height: dp(50)
+                        # ... other properties from your file ...
+                    TextInput:
+                        id: login_password
+                        hint_text: 'Password'
+                        password: True
+                        size_hint_y: None
+                        height: dp(50)
+                        # ... other properties from your file ...
+                    Button:
+                        text: 'Login'
+                        size_hint_y: None
+                        height: dp(50)
+                        on_press: root.do_login(login_username.text, login_password.text)
+                        # ... other properties from your file ...
+                    BoxLayout:
+                        size_hint_y: None
+                        height: dp(30)
+                        Label:
+                            text: "Don't have an account?"
+                            color: 0.4, 0.4, 0.4, 1
+                        Button:
+                            text: 'Sign Up'
+                            background_color: (0,0,0,0)
+                            on_press: root.go_to_signup()
+                            color: 0.2, 0.6, 0.9, 1
+                            bold: True
+
+        Screen:
+            name: 'signup'
+            # ... Signup screen structure is very similar ...
+            FloatLayout:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: dp(30)
+                    spacing: dp(15)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    size_hint: 0.8, None
+                    height: self.minimum_height
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [dp(15)]
+                    
+                    Label:
+                        text: 'Create Account'
+                        font_size: '36sp'
+                        bold: True
+                        # ... other properties ...
+
+                    Label:
+                        id: signup_error_label # ERROR LABEL FOR SIGNUP
+                        text: ''
+                        color: 1, 0.2, 0.2, 1
+                        size_hint_y: None
+                        height: self.texture_size[1] if self.text else 0
+
+                    TextInput:
+                        id: signup_username
+                        hint_text: 'Choose a Username'
+                        size_hint_y: None
+                        height: dp(50)
+                    TextInput:
+                        id: signup_email
+                        hint_text: 'Email Address'
+                        size_hint_y: None
+                        height: dp(50)
+                    TextInput:
+                        id: signup_password
+                        hint_text: 'Password'
+                        password: True
+                        size_hint_y: None
+                        height: dp(50)
+                    TextInput:
+                        id: signup_confirm_password
+                        hint_text: 'Confirm Password'
+                        password: True
+                        size_hint_y: None
+                        height: dp(50)
+
+                    Button:
+                        text: 'Create Account'
+                        size_hint_y: None
+                        height: dp(50)
+                        on_press: root.do_signup(signup_username.text, signup_email.text, signup_password.text, signup_confirm_password.text)
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: dp(30)
+                        Label:
+                            text: 'Already have an account?'
+                            color: 0.4, 0.4, 0.4, 1
+                        Button:
+                            text: 'Login'
+                            background_color: (0,0,0,0)
+                            on_press: root.go_to_login()
+                            color: 0.2, 0.6, 0.9, 1
+                            bold: True

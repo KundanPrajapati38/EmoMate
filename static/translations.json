@@ -1,0 +1,46 @@
+{
+    "en": {
+        "emotion_detection": "Emotion Detection",
+        "predicted_emotion": "Predicted Emotion:",
+        "ai_response": "AI Response:",
+        "ai_is_ready": "AI is ready to analyze your emotions",
+        "start_detection": "Start Detection",
+        "stop": "Stop",
+        "analyzing_expression": "Analyzing your expression...",
+        "camera_access_error": "Could not access camera. Please check permissions.",
+        "detection_stopped": "Detection stopped",
+        "error_connecting_to_server": "Error connecting to server.",
+        "canned_responses": {
+            "Happy": "That's great! Keep smiling!",
+            "Sad": "I'm sorry you feel that way. I hope things get better.",
+            "Angry": "Take a deep breath. It's okay to feel angry.",
+            "Neutral": "You seem to be calm. How are you today?",
+            "Surprise": "Oh, a surprise! What's on your mind?",
+            "Fear": "It's okay to be scared sometimes. You are safe.",
+            "Disgust": "That's a strong feeling. What's bothering you?",
+            "N/A": ""
+        }
+    },
+    "hi": {
+        "emotion_detection": "भावनात्मक पहचान",
+        "predicted_emotion": "अनुमानित भावना:",
+        "ai_response": "एआई प्रतिक्रिया:",
+        "ai_is_ready": "एआई आपकी भावनाओं का विश्लेषण करने के लिए तैयार है",
+        "start_detection": "पहचान शुरू करें",
+        "stop": "बंद करें",
+        "analyzing_expression": "आपकी अभिव्यक्ति का विश्लेषण कर रहा है...",
+        "camera_access_error": "कैमरे तक नहीं पहुँचा जा सका। कृपया अनुमतियाँ जाँचें।",
+        "detection_stopped": "पहचान बंद कर दी गई",
+        "error_connecting_to_server": "सर्वर से कनेक्ट करने में त्रुटि।",
+        "canned_responses": {
+            "Happy": "यह बहुत अच्छा है! मुस्कुराते रहें!",
+            "Sad": "मुझे दुख है कि आप ऐसा महसूस कर रहे हैं। आशा है चीजें बेहतर होंगी।",
+            "Angry": "एक गहरी सांस लें। गुस्सा महसूस करना ठीक है।",
+            "Neutral": "आप शांत लग रहे हैं। आप आज कैसे हैं?",
+            "Surprise": "ओह, एक आश्चर्य! आपके दिमाग में क्या है?",
+            "Fear": "कभी-कभी डर लगना ठीक है। आप सुरक्षित हैं।",
+            "Disgust": "यह एक मजबूत भावना है। आपको क्या परेशान कर रहा है?",
+            "N/A": ""
+        }
+    }
+}

@@ -1,0 +1,23 @@
+# File: kv/emotion_screen.kv
+# Is file mein aapke main feature, Emotion Detector, ka layout hai.
+
+<EmotionDetectorScreen>:
+    # Main layout jo poori screen cover karega
+    BoxLayout:
+        orientation: 'vertical'
+
+        # Yahan hum apne banaye hue component ko add kar rahe hain.
+        # Iska saara logic 'emotion_detector_layout.py' mein hai.
+        EmotionDetectorLayout:
+            id: emotion_layout # Ise ek ID dete hain taaki access kar sakein
+            size_hint_y: 0.9 # Screen ka 90% hissa camera aur labels ko de
+
+        # Logout Button
+        Button:
+            text: 'Back to Home'
+            size_hint_y: 0.1 # Screen ka 10% hissa button ko de
+            height: dp(50)
+            background_normal: ''
+            background_color: (0.6, 0.15, 0.15, 1) # Red color
+            color: (1, 1, 1, 1)
+            on_press: root.go_back_to_home() # Is screen ke Python file mein bane function ko call karein

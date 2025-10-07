@@ -1,0 +1,11 @@
+<EmotionDetectorScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        EmotionDetectorLayout:
+            id: emotion_detector_layout
+
+        Button:
+            text: 'Logout'
+            size_hint_y: None
+            height: 50
+            on_press: app.root.get_screen('emotion').do_logout()
