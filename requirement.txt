@@ -6,3 +6,4 @@ keras
 groq
 python-dotenv
 Flask-Login
+gunicorn
