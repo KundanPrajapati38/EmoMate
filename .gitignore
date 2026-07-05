@@ -9,3 +9,5 @@ client/dist/
 dist/
 .agents/
 .gemini/
+archive/
+archive_backup/

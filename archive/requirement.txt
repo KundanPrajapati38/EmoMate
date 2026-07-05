@@ -1,9 +1,0 @@
-Flask
-numpy
-opencv-python
-tensorflow
-keras
-groq
-python-dotenv
-Flask-Login
-gunicorn
