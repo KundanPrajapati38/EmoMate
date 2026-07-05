@@ -1,0 +1,203 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg-light {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bg-dark {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+
+
+body.dark-mode .dropdown-menu {
+    background-color: #1c1c1c;
+}
+
+body.dark-mode .dropdown-item {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #333;
+}
+
+body.dark-mode .modal-content {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: #333;
+}
+
+body.dark-mode .close {
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #bbb;
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1);
+}
+
+body.dark-mode .bg-light {
+    background-color: #0a0a0a; /* Darker background for light sections in dark mode */
+}
+
+body.dark-mode .app-icon {
+    background-color: rgba(255, 255, 255, 0.1); /* Lighter background for app icons */
+}
+
+body.dark-mode .app-icon .fa-building,
+body.dark-mode .app-icon .fa-mobile-alt,
+body.dark-mode .app-icon .fa-credit-card,
+body.dark-mode .app-icon .fa-user-shield {
+    color: #80d4ff; /* Lighter blue for icons */
+}
+
+body.dark-mode .app-icon .fa-user-shield {
+    color: #80d4ff; /* Lighter blue for icons */
+}
+
+body.dark-mode .list-unstyled li,
+body.dark-mode .list-unstyled li span {
+    color: #e0e0e0; /* Light text for lead and list items */
+}
+
+body.dark-mode .list-unstyled li .fa-check-circle {
+    color: #28a745; /* Green checkmark */
+}
+
+body.dark-mode h2[data-lang-key="featuresTitle"] {
+    color: black;
+}
+
+body.light-mode h2[data-lang-key="featuresTitle"] {
+    color: black;
+}
+
+body.dark-mode h2[data-lang-key="demoTitle"] {
+    color: white;
+}
+
+body.dark-mode p[data-lang-key="demoSubtitle"] {
+    color: white;
+}
+
+body.dark-mode .list-unstyled li,
+body.dark-mode .list-unstyled li span {
+    color: white;
+}
+
+body.dark-mode h2[data-lang-key="testimonialsTitle"] {
+    color: white;
+}
+
+body.dark-mode h4[data-lang-key="featureSecurityTitle"],
+body.dark-mode h4[data-lang-key="featureFastResponseTitle"],
+body.dark-mode h4[data-lang-key="featureAITechnologyTitle"] {
+    color: white;
+}
+
+body.dark-mode p.text-muted[data-lang-key="featureSecurityDescription"],
+body.dark-mode p.text-muted[data-lang-key="featureFastResponseDescription"],
+body.dark-mode p.text-muted[data-lang-key="featureAITechnologyDescription"] {
+    color: white;
+}
+  
+@media (max-width: 768px) { 
+  .banner-title { 
+    font-size: 2.5rem; 
+  } 
+   
+  .banner-subtitle { 
+    font-size: 1.1rem; 
+  } 
+   
+  .section-title { 
+    font-size: 2rem; 
+  } 
+}
+
+
+body.dark-mode .hero-subtitle {
+  color: white;
+  -webkit-text-fill-color: white;
+  background: none;
+  -webkit-background-clip: unset;
+}
+
+body.light-mode .hero-subtitle {
+  color: black;
+  text-decoration: solid;
+}
+
+
+/* Default to light mode if no specific theme is set */
+body:not(.dark-mode):not(.light-mode) {
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --header-bg-color: #ffffff;
+    --navbar-bg-color: #ffffff;
+    --navbar-text-color: #212529;
+    --card-bg-color: #e0f2f7; /* Light blue for background */
+    --card-border-color: #dee2e6;
+    --button-primary-bg: #007bff;
+    --button-primary-color: #ffffff;
+    --footer-bg-start: #f8f9fa;
+    --footer-bg-end: #e9ecef;
+    --footer-heading-color: #343a40;
+    --footer-text-color: #6c757d;
+    --footer-link-color: #007bff;
+    --footer-social-icon-color: #495057;
+    --footer-copyright-color: #6c757d;
+    --header-border-color: #e0e0e0; /* Light mode header border */
+    --footer-border-color: #e0e0e0; /* Light mode footer border */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Deeper dark background */
+    color: #e0e0e0; /* Light text color for dark mode */
+    --header-border-color: #333333; /* Dark mode header border */
+    --footer-border-color: #333333; /* Dark mode footer border */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    --background-color: #f8f9fa; /* Light background for light mode */
+    --text-color: #212529; /* Dark text color for light mode */
+    --header-border-color: #e0e0e0; /* Light mode header border */
+    --footer-border-color: #e0e0e0; /* Light mode footer border */
+}
+
+body .navbar,
+body .modal-content,
+body .form-control,
+body .form-select,
+body .card {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

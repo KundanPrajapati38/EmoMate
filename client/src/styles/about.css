@@ -1,0 +1,539 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 70px; /* Add padding to account for fixed header */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    color: #000000; /* Changed to black */
+}
+
+body.light-mode h1, body.light-mode h2, body.light-mode h3, body.light-mode h4, body.light-mode h5, body.light-mode h6,
+body.light-mode p, body.light-mode a, body.light-mode span, body.light-mode div {
+    color: #000000; /* Ensure all text elements are black in light mode */
+}
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+body.dark-mode .my-5 {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+    border-color: #000000;
+}
+
+body.dark-mode .header {
+    background-color: #2c2c2c;
+    border-bottom: 1px solid #444444;
+}
+
+body.dark-mode .card {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #444444;
+}
+
+body.dark-mode .footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+/* Hero Section */
+#hero {
+    padding: 80spx 0;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+body.dark-mode #hero {
+    background: linear-gradient(45deg, #0056b3, #003f88);
+}
+
+#hero h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+body.dark-mode #hero h2 {
+    color: #ffffff !important;
+}
+
+#hero p {
+    font-size: 1.25rem;
+}
+body.dark-mode #hero p {
+    color: #ffffff !important;
+}
+body.dark-mode #mission-vision .card {
+    background-color: #ffffff !important;
+}
+
+/* Mission and Vision Section */
+#mission-vision .card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+body.dark-mode #mission-vision .card {
+    color: #ffffff !important;
+}
+
+#mission-vision .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+body.dark-mode #mission-vision .card-title {
+    color: #ffffff !important;
+}
+
+#mission-vision .card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+body.dark-mode #team .card {
+    color: #ffffff !important;
+}
+
+/* Team Section */
+#team .card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+body.dark-mode #team .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#team .card-img-top {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0; /* Make it square */
+    margin-top: 20px;
+    border: 3px solid #007bff;
+}
+body.dark-mode #team .card-title {
+    color: #ffffff !important;
+}
+body.dark-mode #team .card-text {
+    color: #ffffff !important;
+}
+body.dark-mode #team .card-title {
+    color: #ffffff !important;
+}
+#team .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 15px;
+}
+body.dark-mode #team .card-text {
+    color: #ffffff !important;
+}
+
+/* Contact Section */
+#contact .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+body.dark-mode #contact .btn-primary {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+#contact .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+body.dark-mode #contact .btn-primary:hover {
+    background-color: #003f88;
+    border-color: #003f88;
+}
+
+/* Animations */
+.animate__animated {
+    visibility: hidden;
+}
+
+.animate__animated.animate__fadeIn, 
+.animate__animated.animate__fadeInLeft, 
+.animate__animated.animate__fadeInRight, 
+.animate__animated.animate__fadeInUp {
+    visibility: visible;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInUp {
+    animation-name: slideInUp;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.animate__zoomIn {
+    animation-name: zoomIn;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    #mission-vision .col-md-6 {
+        margin-bottom: 30px;
+    }
+}
+
+body.dark-mode .about-section,
+body.dark-mode .vision-mission-section,
+body.dark-mode .team-section,
+body.dark-mode .testimonials-section {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .stats-section {
+    background-color: #0f3460;
+    color: #e0e0e0;
+}
+
+body.dark-mode .cta-section {
+    background-color: #0f3460;
+    color: #e0e0e0;
+}
+
+body.dark-mode .section-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode .section-title::after {
+    background: #e0e0e0;
+}
+
+body.dark-mode .lead {
+    color: #a0a0a0 !important;
+}
+
+body.dark-mode .feature-item h5,
+body.dark-mode .feature-item p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .stat-item .counter,
+body.dark-mode .stat-item p {
+    color: #e0e0e0;
+}
+
+/* Testimonials Section */
+.testimonials-section .testimonial-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials-section .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-section .testimonial-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+.testimonials-section .testimonial-card h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.testimonials-section .testimonial-card p {
+    font-size: 0.9rem;
+}
+
+body.dark-mode .testimonials-section .testimonial-card {
+    background-color: #16213e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+}
+
+body.dark-mode .testimonials-section .testimonial-card h5 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .testimonials-section .testimonial-card p.text-muted {
+    color: #a0a0a0 !important;
+}
+
+body.light-mode .team-member-card {
+    background-color: hsl(211, 100%, 67%); /* Light blue background */
+    border: 1px solid #4e44b3; /* Blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow */
+}
+
+body.light-mode .team-member-card h5 {
+    color: #343a40; /* Darker text for names */
+}
+
+body.light-mode .team-member-card p.text-muted {
+    color: #6c757d !important; /* Medium dark text for roles */
+}
+
+body.light-mode #testimonials .lead.text-muted,
+body.light-mode #vision-mission .lead.text-muted,
+body.light-mode #team .lead.text-muted,
+body.light-mode #team .text-muted,
+body.light-mode #testimonials .text-muted {
+    color: #000000 !important;
+}
+
+body.dark-mode #testimonials .lead.text-muted,
+body.dark-mode #vision-mission .lead.text-muted,
+body.dark-mode #team .lead.text-muted,
+body.dark-mode #team .text-muted,
+body.dark-mode #testimonials .text-muted {
+    color: #ffffff !important;
+}
+
+
+
+/* Hero Section Background Zoom Animation */
+@keyframes hero-background-zoom {
+  0% {
+    background-size: 100% auto;
+  }
+  100% {
+    background-size: 110% auto;
+  }
+}
+
+.hero-section {
+  /* This line applies the animation */
+  animation: hero-background-zoom 25s ease-in-out infinite alternate;
+  /* Keep the pre-defined background image property */
+
+  background-size: 100% auto; /* Initial size */
+}
+
+/* "Donate Now" Button Pulse/Glow Animation */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px 0px rgba(77, 184, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px 8px rgba(77, 184, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px 0px rgba(77, 184, 255, 0.5);
+  }
+}
+
+.hero-section .btn-primary {
+  /* This line applies the glowing animation */
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Button Icons Shake Animation */
+@keyframes icon-shake {
+  /* The animation will run for 10 seconds, but the shake will only be at the beginning */
+  0%, 10%, 100% { transform: rotate(0); }
+  1%, 3%, 5% { transform: rotate(10deg); }
+  2%, 4% { transform: rotate(-10deg); }
+}
+
+.hero-section .btn .fas {
+  /* This line applies the icon shake animation */
+  animation: icon-shake 10s ease-in-out infinite;
+  display: inline-block; /* Required for animation */
+}
+
+/* Banner Styles */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' https://images.unsplash.com/photo-1509099836639-18ba1795216d ') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(255, 255, 255); /* White text for banner in light mode */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 123, 255, 0.2);
+    z-index: 0;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.banner-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.banner-subtitle {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.banner-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.banner-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+}
+
+/* Dark Mode Specific Banner Styles */
+body.dark-mode .banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(' https://images.unsplash.com/photo-1509099836639-18ba1795216d ') no-repeat center center;
+    background-size: cover;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Stronger text shadow */
+}
+
+body.dark-mode .banner::before {
+    background: rgba(255, 255, 255, 0.1); /* Subtler overlay */
+}
+
+body.dark-mode .banner-title,
+body.dark-mode .banner-subtitle {
+    color: #f8f9fa; /* Light text for dark mode */
+    font-weight: bold; /* Make all text bold in dark mode */
+}
+
+body.dark-mode .banner-subtitle {
+    color: #ffffff; /* Ensure white text on dark banner */
+    font-weight: 500; /* Ensure banner subtitle has appropriate weight */
+}
+
+body.dark-mode .banner-btn {
+    background: linear-gradient(90deg, #0056b3, #0099cc);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    font-weight: 600; /* Ensure banner button text is bold */
+}
+
+body.dark-mode .banner-btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .banner-title {
+        font-size: 2.5rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Team Member Photo Styles */
+.team-member-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0; /* Make it square by default */
+    transition: all 0.3s ease;
+}
+
+.team-member-photo:hover {
+    object-fit: contain; /* Show full image */
+    border-radius: 0; /* Make it square */
+    transform: scale(1.2); /* Enlarge more significantly */
+}
+
+/* Dark Mode Specific Styles for Team Member Photos */
+body.dark-mode .team-member-photo {
+    border: 2px solid #4a5568; /* Subtle border in dark mode */
+}
+
+.team-member-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.team-member-card img {
+    transition: all 0.3s ease;
+}
+
+.team-member-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode .team-member-card {
+    background-color: #2d3748;
+    color: #fff;
+}
+
+body.dark-mode .team-member-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .team-member-card .text-muted {
+    color: #a0aec0;
+}
+
+body.light-mode .team-member-card .text-muted {
+    color: #000;
+} /* Black color for light mode */

@@ -1,1 +1,11 @@
-venv/
+node_modules/
+.env
+__pycache__/
+*.pyc
+*.h5
+*.xml
+users.json
+client/dist/
+dist/
+.agents/
+.gemini/
